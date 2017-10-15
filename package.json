@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "sweetalert": "^2.0.6",
-    "vue-blu": "^0.1.9"
+    "vue-blu": "^0.1.9",
+    "vue-infinite-loading": "^2.2.1"
   }
 }

@@ -3,12 +3,13 @@
   <div class="balanceBlock">
   <balance @showAddBalance="showAddBalance" @showAddWaste="showAddWaste"><template slot="balance">{{balance}}</template></balance>
   </div>
-  <addbalance @completedBal="addBalance" v-show="showBalance"></addbalance>
-  <addwaste @completedWaste="addWaste" v-show="showWaste"></addwaste>
+  <addbalance @completedBal="addBalance" v-show="showBalance" ref="balanceForm"></addbalance>
+  <addwaste @completedWaste="addWaste" v-show="showWaste" ref="wasteForm"></addwaste>
   <div class="wasteBlock" >
   <div class="box shadow" v-for="waste in wastes">
-    <p class="wasteTitle">{{waste.name}} : <span class="price">{{Math.abs(waste.price)}} грн.</span></p>
-      <p>{{waste.description}}</p>
+    <p class="wasteTitle">{{waste.name}} : <span class="price">{{Math.abs(waste.price)}} грн.</span>
+      <br>{{waste.description}}
+    </p>
   </div>
 </div>
 </div>
@@ -17,11 +18,12 @@
 import balance from './balance';
 import addbalance from './addbalance';
 import addwaste from './addwaste';
+
 export default {
     components: {
       balance,
       addbalance,
-      addwaste
+      addwaste,
     },
     data(){
      return { balance:'',
@@ -43,7 +45,8 @@ export default {
         this.balance = parseInt(this.balance) + parseInt(data.bill);
         this.showBalance = false;
         this.showWaste = false;
-      },
+        this.$refs.balanceForm.crud.bill = '';
+    },
       showAddBalance() {
       this.showBalance == false ? this.showBalance = true : this.showBalance = false;
       this.showWaste = false;
@@ -53,6 +56,10 @@ export default {
         data.price = Math.abs(data.price);
         this.wastes.unshift(data)
         this.showWaste = false;
+        this.$refs.wasteForm.crud = {name:'',
+                                 description:'',
+                                  price:''};
+
       },
       showAddWaste() {
         this.showWaste == false ? this.showWaste = true : this.showWaste = false;
