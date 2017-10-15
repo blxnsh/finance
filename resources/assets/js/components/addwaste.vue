@@ -16,16 +16,16 @@
           <input id="description" type="text" v-model="crud.description">
         </p>
         <br>
-          <button class="button is-info is-outlined"
+          <button class="button is-info is-outlined is-large"
           type="submit">Добавить</button>
         </p>
       </form>
-      <button class="button is-primary is-outlined"
+      <button class="button is-primary is-outlined is-large"
       @click="displayAdditional">Стандартные расходы</button>
       <div v-show="showAdditional">
-        <button class="button is-danger is-outlined"
+        <button class="button is-danger is-outlined is-large"
         @click="marshrutka16">Машрутка 16</button>
-        <button class="button is-danger is-outlined"
+        <button class="button is-danger is-outlined is-large"
         @click="marshrutka5">Маршрутка 5</button>
       </div>
     </div>

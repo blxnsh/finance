@@ -8,7 +8,7 @@
         <input id="bill" type="text" v-model="crud.bill">
       </p>
       <p class="pbutton">
-        <button class="button is-info is-outlined"
+        <button class="button is-info is-outlined is-large"
         type="submit">Добавить</button>
       </p>
     </form>

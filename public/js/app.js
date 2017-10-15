@@ -17093,7 +17093,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "button is-info is-outlined",
+          staticClass: "button is-info is-outlined is-large",
           attrs: { type: "submit" }
         },
         [_vm._v("Добавить")]
@@ -17387,7 +17387,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "button is-info is-outlined",
+              staticClass: "button is-info is-outlined is-large",
               attrs: { type: "submit" }
             },
             [_vm._v("Добавить")]
@@ -17400,7 +17400,7 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass: "button is-primary is-outlined",
+          staticClass: "button is-primary is-outlined is-large",
           on: { click: _vm.displayAdditional }
         },
         [_vm._v("Стандартные расходы")]
@@ -17422,7 +17422,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "button is-danger is-outlined",
+              staticClass: "button is-danger is-outlined is-large",
               on: { click: _vm.marshrutka16 }
             },
             [_vm._v("Машрутка 16")]
@@ -17431,7 +17431,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "button is-danger is-outlined",
+              staticClass: "button is-danger is-outlined is-large",
               on: { click: _vm.marshrutka5 }
             },
             [_vm._v("Маршрутка 5")]
