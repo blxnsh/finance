@@ -1,0 +1,16 @@
+* {
+  font-size: 1.5rem;
+}
+
+body {
+  background: #9984D4;
+  height: 100%;
+}
+
+.outlineform {
+  -webkit-box-shadow: 0 0 5px #51cbee;
+          box-shadow: 0 0 5px #51cbee;
+  border: 1px solid #51cbee;
+  margin-top: 2rem;
+}
+
