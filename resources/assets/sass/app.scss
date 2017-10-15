@@ -2,12 +2,14 @@
   font-size: 1.5rem;
 }
 
-body{
-  background: #9984D4;
+html {
   height:100%;
 }
 
-
+body{
+  background: #9984D4;
+  min-height:100%;
+}
 
 .outlineform {
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);

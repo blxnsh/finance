@@ -1,11 +1,11 @@
 <template>
-<div>
+<div class="container">
   <div class="balanceBlock">
   <balance @showAddBalance="showAddBalance" @showAddWaste="showAddWaste"><template slot="balance">{{balance}}</template></balance>
+  </div>
   <addbalance @completedBal="addBalance" v-show="showBalance"></addbalance>
   <addwaste @completedWaste="addWaste" v-show="showWaste"></addwaste>
-  </div>
-  <div class="wasteBlock">
+  <div class="wasteBlock" >
   <div class="box shadow" v-for="waste in wastes">
     <p class="wasteTitle">{{waste.name}} : <span class="price">{{Math.abs(waste.price)}} грн.</span></p>
       <p>{{waste.description}}</p>
@@ -27,7 +27,8 @@ export default {
      return { balance:'',
               wastes: [''],
              showBalance:false,
-             showWaste:false};
+             showWaste:false,
+            };
     },
 
     mounted() {
@@ -41,6 +42,7 @@ export default {
       addBalance(data){
         this.balance = parseInt(this.balance) + parseInt(data.bill);
         this.showBalance = false;
+        this.showWaste = false;
       },
       showAddBalance() {
       this.showBalance == false ? this.showBalance = true : this.showBalance = false;
