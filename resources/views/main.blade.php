@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Главная')
+@section('title', 'Дневник расходов')
 
 @section('content')
 <div id="app">
