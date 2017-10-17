@@ -1,24 +1,26 @@
 <template>
-  <div>
-    <div class="box outlineform">
-    <form @submit.prevent="addBalance">
-      <p>
-        <label for="bill">Сумма</label>
-        <br>
-        <input id="bill" type="text" v-model="crud.bill">
-      </p>
-      <p class="pbutton">
-        <button class="button is-info is-outlined is-large"
-        type="submit">Добавить</button>
-      </p>
-    </form>
-    </div>
-  </div>
+  <v-container grid-list-xs text-xs-center elevation-3 class="pb-2 pt-2">
+    <v-layout row wrap>
+      <v-flex xs10 offset-xs1>
+  <v-form v-model="valid" @submit.prevent="addBalance">
+    <v-text-field
+     label="Сумма"
+     v-model="crud.bill"
+      required></v-text-field>
+
+    <v-btn  type="submit" color="primary" dark>
+         Добавить
+       </v-btn>
+</v-form>
+</v-flex>
+</v-layout>
+</v-container>
 </template>
 <script>
 export default {
   data(){
-    return {crud : new Crud({bill:''})};
+    return {crud : new Crud({bill:''}),
+            valid:false};
   },
     methods: {
       addBalance() {

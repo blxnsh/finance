@@ -1,22 +1,32 @@
 <template>
-<div align="center">
-  <p class="bal">
-    Баланс : <span class="bill"><slot name="balance"></slot> грн.</span>
-  </p>
- <p class="control has-addons bigbutton" align="center">
-    <a class="button is-danger" id="halfButton"
-    @click="$emit('showAddBalance')">
-    <span> <i class="fa fa-plus"></i> </span>
-    Добавить баланс
-  </a>
-    <a class="button is-danger" id="halfButton"
+  <v-container grid-list-xs text-xs-center>
+    <v-layout row wrap elevation-6>
+  <v-flex xs4 class="pa-0">
+    <v-card dark tile flat color="red lighten-2 grey--text text--lighten-4">
+      <v-card-text>Баланс</v-card-text>
+    </v-card>
+  </v-flex>
+  <v-flex xs8 class="pa-0">
+    <v-card dark tile flat color="red lighten-1 grey--text text--lighten-3">
+      <v-card-text><slot name="balance"></slot> грн.</v-card-text>
+    </v-card>
+  </v-flex>
+  </v-layout>
+  <v-layout row wrap style="padding-bottom:0.5rem;padding-top:0.5rem">
+  <v-flex xs4>
+      <v-btn fab dark large color="deep-orange accent-2"
+      @click="$emit('showAddBalance')">
+       <v-icon dark>add</v-icon>
+      </v-btn>
+  </v-flex>
+  <v-flex xs8>
+    <v-btn fab dark large color="deep-orange accent-2"
     @click="$emit('showAddWaste')">
-     Добавить расходы
-    <span> <i class="fa fa-minus"></i> </span>
-  </a>
-  </p>
-
-</div>
+      <v-icon dark>remove</v-icon>
+  </v-btn>
+</v-flex>
+</v-layout>
+</v-container>
 </template>
 <script>
     export default {
@@ -25,34 +35,10 @@
 </script>
 
 <style>
-button {
-  margin:5px;
+.flex{
+  padding:0px;
 }
-.bal {
-  font-size: 2.5rem;
-  color: #bdc3c7;
+.btn__content{
+  color:#e3e3e3;
 }
-.bill {
-  color: #ecf0f1;
-  font-size: 3rem;
-}
-.fa-minus {
-  padding-left: 0.3rem;
-  padding-top: 0.11rem;
-}
-.fa-plus {
-  padding-right: 0.3rem;
-  padding-top: 0.11rem;
-}
-.bigbutton {
-  margin-top:0.8rem;
-  width:100%;
-}
-
-#halfButton {
-  font-size: 1.3rem;
-  width:50%;
-  height:4em;
-}
-
 </style>

@@ -1,35 +1,35 @@
 <template>
-  <div>
-    <div class="box outlineform">
-      <form @submit.prevent="addWaste">
-        <p>
-        <p>
-          <label for="name">Трата</label> <br>
-          <input id="name" type="text" v-model="crud.name">
-        </p>
-        <p>
-          <label for="price">Сумма</label> <br>
-          <input id="price" type="text" v-model="crud.price">
-        </p>
-        <p>
-          <label for="description">Описание (optional)</label> <br>
-          <input id="description" type="text" v-model="crud.description">
-        </p>
-        <br>
-          <button class="button is-info is-outlined is-large"
-          type="submit">Добавить</button>
-        </p>
-      </form>
-      <button class="button is-primary is-outlined is-large"
-      @click="displayAdditional">Стандартные расходы</button>
-      <div v-show="showAdditional">
-        <button class="button is-danger is-outlined is-large"
-        @click="marshrutka16">Машрутка 16</button>
-        <button class="button is-danger is-outlined is-large"
-        @click="marshrutka5">Маршрутка 5</button>
-      </div>
-    </div>
-  </div>
+  <v-container grid-list-xs text-xs-center elevation-3 class="pb-2 pt-2">
+    <v-layout row wrap>
+      <v-flex xs10 offset-xs1>
+  <v-form v-model="valid" @submit.prevent="addWaste">
+    <v-text-field
+     label="Трата"
+     v-model="crud.name"
+      required></v-text-field>
+    <v-text-field
+     label="Сумма"
+     v-model="crud.price"
+      required></v-text-field>
+    <v-text-field
+     label="Описание (опционально)"
+     v-model="crud.description"></v-text-field>
+    <v-btn  type="submit" color="primary" dark>
+         Добавить
+     </v-btn>
+    <v-btn  type="submit" color="error" dark @click="displayAdditional">
+         Постоянные
+       </v-btn>
+</v-form>
+      <v-flex v-show="showAdditional" class="pb-2 pt-2">
+        <v-btn color="green accent-4" fab large
+        @click="marshrutka16">16</v-btn>
+        <v-btn color="green accent-4" fab large
+        @click="marshrutka5">5</v-btn>
+      </v-flex>
+</v-flex>
+</v-layout>
+</v-container>
 </template>
 <script>
 export default {
@@ -38,7 +38,8 @@ export default {
       return {crud : new Crud({name:'',
                                description:'',
                                 price:''}),
-              showAdditional: false};
+              showAdditional: false,
+              valid: false,};
     },
       methods: {
     addWaste() {

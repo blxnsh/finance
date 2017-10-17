@@ -1,18 +1,26 @@
 <template>
-<div class="container">
-  <div class="balanceBlock">
-  <balance @showAddBalance="showAddBalance" @showAddWaste="showAddWaste"><template slot="balance">{{balance}}</template></balance>
-  </div>
+  <v-app>
+ <v-container grid-list-xs>
+  <v-flex xs12 class="red darken-1 elevation-8">
+      <balance @showAddBalance="showAddBalance" @showAddWaste="showAddWaste"><template slot="balance">{{balance}}</template></balance>
+  </v-flex>
   <addbalance @completedBal="addBalance" v-show="showBalance" ref="balanceForm"></addbalance>
   <addwaste @completedWaste="addWaste" v-show="showWaste" ref="wasteForm"></addwaste>
-  <div class="wasteBlock" >
-  <div class="box shadow" v-for="waste in wastes">
-    <p class="wasteTitle">{{waste.name}} : <span class="price">{{Math.abs(waste.price)}} грн.</span>
-      <br>{{waste.description}}
-    </p>
-  </div>
-</div>
-</div>
+  <v-flex class="pt-3">
+  <v-flex v-for="waste in wastes" :key="waste.id">
+    <v-divider></v-divider>
+    <v-list class="pa-2 pl-5" >
+      <v-layout row wrap>
+      <v-flex xs11 class="headline ">{{waste.name}}</v-flex>
+      <v-flex xs11 class="body-1">{{waste.description}}</v-flex>
+      <v-flex xs7 class="headline purple--text text--darken-3">{{Math.abs(waste.price)}} грн.</v-flex>
+      <v-flex xs5 class="red--text text--accent-3">{{waste.created_at | moment('DD/MM/YYYY')}}</v-flex>
+      </v-layout>
+    </v-list>
+  </v-flex>
+</v-flex>
+</v-container>
+</v-app>
 </template>
 <script>
 import balance from './balance';
@@ -38,7 +46,6 @@ export default {
                   .then(response => this.balance = response.data);
       axios.get('/api/waste')
                       .then(response => this.wastes = response.data);
-                  console.log('loaded');
     },
     methods: {
       addBalance(data){
@@ -71,27 +78,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.waste {
-  padding-top:10px;
-}
-.balanceBlock {
-    padding:1rem;
-    padding-bottom:2rem;
-    background:#592E83;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-.wasteBlock {
-  padding:10px;
-}
-.shadow {
-  -moz-box-shadow:    inset 0 0 10px #000000;
- -webkit-box-shadow: inset 0 0 10px #000000;
- box-shadow:         inset 0 0 10px #000000;
-}
-
-.price {
-  font-size: 1.7rem;
-  font-weight: 600;
-  color: #c0392b;
+.container{
+  padding: 0px;
 }
 </style>
