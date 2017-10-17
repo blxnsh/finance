@@ -17,7 +17,7 @@
     <v-btn  type="submit" color="primary" dark>
          Добавить
      </v-btn>
-    <v-btn  type="submit" color="error" dark @click="displayAdditional">
+    <v-btn color="error" dark @click="displayAdditional">
          Постоянные
        </v-btn>
 </v-form>

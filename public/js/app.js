@@ -32880,7 +32880,7 @@ var render = function() {
                   _c(
                     "v-btn",
                     {
-                      attrs: { type: "submit", color: "error", dark: "" },
+                      attrs: { color: "error", dark: "" },
                       on: { click: _vm.displayAdditional }
                     },
                     [_vm._v("\n         Постоянные\n       ")]
