@@ -49363,7 +49363,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49374,6 +49374,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -49468,20 +49469,18 @@ var render = function() {
                 [
                   _c(
                     "v-flex",
-                    { staticClass: "headline ", attrs: { xs11: "" } },
+                    { staticClass: "headline ", attrs: { xs10: "" } },
+                    [_vm._v(_vm._s(waste.name))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-flex",
+                    { attrs: { xs2: "" } },
                     [
-                      _vm._v(_vm._s(waste.name) + "\n      "),
                       _c(
                         "v-btn",
                         {
-                          attrs: {
-                            dark: "",
-                            fab: "",
-                            small: "",
-                            right: "",
-                            absolute: "",
-                            color: "red"
-                          },
+                          attrs: { dark: "", fab: "", small: "", color: "red" },
                           on: {
                             click: function($event) {
                               _vm.deleteWaste(waste)
