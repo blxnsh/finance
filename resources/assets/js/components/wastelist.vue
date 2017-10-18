@@ -2,11 +2,10 @@
   <div>
   <v-flex v-for="waste in wastes" :key="waste.id" >
     <v-divider></v-divider>
-    <v-list class="pa-2 pl-4 pr-4" >
+    <v-list class="pa-2 pl-4 pr-4">
       <v-layout row wrap>
-      <v-flex xs10 class="headline ">{{waste.name}}</v-flex>
-      <v-flex xs2>
-        <v-btn dark fab small color="red" @click="deleteWaste(waste)">
+      <v-flex xs11 class="headline ">{{waste.name}}
+        <v-btn dark fab small right absolute color="red" @click="deleteWaste(waste)">
           <v-icon>clear</v-icon>
         </v-btn>
       </v-flex>
