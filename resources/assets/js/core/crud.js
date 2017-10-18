@@ -11,9 +11,6 @@ class Crud {
     }
 
 
-    /**
-     * Fetch all relevant data for the form.
-     */
     data() {
         let data = {};
 
@@ -25,52 +22,25 @@ class Crud {
     }
 
 
-    /**
-     * Send a POST request to the given URL.
-     * .
-     * @param {string} url
-     */
     post(url) {
         return this.submit('post', url);
     }
 
 
-    /**
-     * Send a PUT request to the given URL.
-     * .
-     * @param {string} url
-     */
     put(url) {
         return this.submit('put', url);
     }
 
 
-    /**
-     * Send a PATCH request to the given URL.
-     * .
-     * @param {string} url
-     */
     patch(url) {
         return this.submit('patch', url);
     }
 
-
-    /**
-     * Send a DELETE request to the given URL.
-     * .
-     * @param {string} url
-     */
     delete(url) {
         return this.submit('delete', url);
     }
 
 
-    /**
-     * Submit the form.
-     *
-     * @param {string} requestType
-     * @param {string} url
-     */
     submit(requestType, url) {
         return new Promise((resolve, reject) => {
             axios[requestType](url, this.data())

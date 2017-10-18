@@ -26,7 +26,7 @@ class FinanceController extends Controller
       $createWaste = Finance::create($request->all());
 
       Bill::create(['bill' => request('price')]);
-      
+
       return $createWaste;
      }
 
@@ -35,6 +35,12 @@ class FinanceController extends Controller
         $wastes = Finance::latest()->get();
         return $wastes;
       }
+
+      public function delete(Request $request) {
+        Finance::find($request->id)->delete();
+        Bill::create(['bill' => $request->price]);
+        return "true";
+         }
 
       public function addbill(Request $request)
        {

@@ -2,7 +2,7 @@
   <v-container grid-list-xs text-xs-center elevation-3 class="pb-2 pt-2">
     <v-layout row wrap>
       <v-flex xs10 offset-xs1>
-  <v-form v-model="valid" @submit.prevent="addWaste">
+  <v-form @submit.prevent="addWaste">
     <v-text-field
      label="Трата"
      v-model="crud.name"
@@ -39,7 +39,7 @@ export default {
                                description:'',
                                 price:''}),
               showAdditional: false,
-              valid: false,};
+              };
     },
       methods: {
     addWaste() {

@@ -16,5 +16,5 @@ Route::get('/api/getbill', 'FinanceController@getbill');
 
 Route::get('/api/waste', 'FinanceController@show');
 Route::post('/api/waste', 'FinanceController@store');
-
+Route::delete('/api/wastedelete', 'FinanceController@delete');
 Route::post('/api/addbill', 'FinanceController@addbill');
