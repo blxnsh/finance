@@ -39,7 +39,6 @@ export default {
   mounted() {
     axios.get('/api/waste')
                     .then(response => this.dataArr = response.data);
-                    console.log(this.dataArr);
   },
   methods: {
     deleteArrayElement(value){
@@ -72,17 +71,18 @@ export default {
     this.busy = true;
     let i = 0;
     setTimeout(() => {
-      do {
-        if(this.dataArr[this.count].id == undefined){break}
+      do {if(this.dataArr[this.count].id == undefined){break}
         this.wastes.push(this.dataArr[this.count]);
         this.count++;
         i++;
-      } while( i < 7 )
+      } while( i < 10)
       this.busy = false;
-      this.showLoad = false;
     }, 1000);
+    setTimeout(() =>{
+      this.showLoad = false;}, 1000);
+    }
   },
-    },
+
   }
 
 </script>
