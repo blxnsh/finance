@@ -11,15 +11,10 @@
 |
 */
 
-Route::get('/', 'FinanceController@index')->name('home');
+Route::get('/', 'FinanceController@index');
 Route::get('/api/getbill', 'FinanceController@getbill');
 
 Route::get('/api/waste', 'FinanceController@show');
 Route::post('/api/waste', 'FinanceController@store');
 Route::delete('/api/wastedelete', 'FinanceController@delete');
 Route::post('/api/addbill', 'FinanceController@addbill');
-
-Route::post('/register', 'RegistrationController@store');
-Route::get('/sessionStatus', function() {
-        return ['user' => Auth::user() ? Auth::user()->id : null];
-    });
