@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function finances()
+  {
+    return $this->hasMany(Finance::class);
+  }
+
+    public function bills()
+  {
+    return $this->hasMany(Bill::class);
+  }
 }

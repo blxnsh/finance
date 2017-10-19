@@ -8,6 +8,10 @@ class Bill extends Model
 {
     protected $guarded = [];
 
+    public function users() {
+      return  $this->belongsTo(User::class);
+    }
+
     public static function getBill(){
       $bills = Bill::all();
       $bill = 0;
