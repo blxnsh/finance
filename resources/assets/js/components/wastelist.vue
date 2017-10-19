@@ -16,16 +16,22 @@
       </v-layout>
     </v-list>
   </v-flex>
+  <infinite-loading @infinite="infiniteHandler" spinner="waveDots"></infinite-loading>
   </div>
 </template>
 
 <script>
+import InfiniteLoading from 'vue-infinite-loading';
+
 export default {
   data() {
     return {wastes:[''],
             crud: new Crud({
               id:''
             })};
+  },
+  components: {
+    InfiniteLoading
   },
   mounted() {
     axios.get('/api/waste')
@@ -56,7 +62,17 @@ export default {
     swal("Все на месте!");
                         }
       });
-    }
+    },
+    infiniteHandler($state) {
+      setTimeout(() => {
+        const temp = [];
+        for (let i = this.wastes.length + 1; i <= this.wastes.length + 7; i++) {
+          temp.push(i);
+        }
+        this.wastes = this.wastes.concat(temp);
+        $state.loaded();
+      }, 1000);
+    },
   }
 }
 </script>
