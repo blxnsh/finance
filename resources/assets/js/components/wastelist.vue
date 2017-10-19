@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
   <v-flex v-for="waste in wastes" :key="waste.id" >
     <v-divider></v-divider>
     <v-list class="pa-2 pl-4 pr-4" >
@@ -16,26 +16,30 @@
       </v-layout>
     </v-list>
   </v-flex>
-  <infinite-loading @infinite="infiniteHandler" spinner="waveDots"></infinite-loading>
+  <v-flex offset-xs5>
+    <v-progress-circular indeterminate color="red" v-show="showLoad" indeterminate v-bind:size="50"></v-progress-circular>
+  </v-flex>
   </div>
 </template>
 
 <script>
-import InfiniteLoading from 'vue-infinite-loading';
-
 export default {
   data() {
-    return {wastes:[''],
+    return {
             crud: new Crud({
               id:''
-            })};
-  },
-  components: {
-    InfiniteLoading
+            }),
+            busy: false,
+            dataArr:[],
+            wastes:[],
+            count: 0,
+            showLoad: false
+          };
   },
   mounted() {
     axios.get('/api/waste')
-                    .then(response => this.wastes = response.data);
+                    .then(response => this.dataArr = response.data);
+                    console.log(this.dataArr);
   },
   methods: {
     deleteArrayElement(value){
@@ -63,18 +67,24 @@ export default {
                         }
       });
     },
-    infiniteHandler($state) {
-      setTimeout(() => {
-        const temp = [];
-        for (let i = this.wastes.length + 1; i <= this.wastes.length + 7; i++) {
-          temp.push(i);
-        }
-        this.wastes = this.wastes.concat(temp);
-        $state.loaded();
-      }, 1000);
+    loadMore() {
+    this.showLoad = true;
+    this.busy = true;
+    let i = 0;
+    setTimeout(() => {
+      do {
+        if(this.dataArr[this.count].id == undefined){break}
+        this.wastes.push(this.dataArr[this.count]);
+        this.count++;
+        i++;
+      } while( i < 7 )
+      this.busy = false;
+      this.showLoad = false;
+    }, 1000);
+  },
     },
   }
-}
+
 </script>
 
 <style lang="css">
