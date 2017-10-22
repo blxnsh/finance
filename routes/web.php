@@ -11,10 +11,14 @@
 |
 */
 
-Route::get('/', 'FinanceController@index');
+Route::get('/', 'FinanceController@index')->name('main');
 Route::get('/api/getbill', 'FinanceController@getbill');
 
 Route::get('/api/waste', 'FinanceController@show');
 Route::post('/api/waste', 'FinanceController@store');
 Route::delete('/api/wastedelete', 'FinanceController@delete');
 Route::post('/api/addbill', 'FinanceController@addbill');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

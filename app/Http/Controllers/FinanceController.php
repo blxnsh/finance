@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Finance;
 use App\Bill;
+use App\User;
 use Illuminate\Http\Request;
+use Auth;
 
 class FinanceController extends Controller
 {
     public function index()
     {
-
-      return view('main');
+      if(Auth::user())
+      {return view('main');}
+      else
+      {return view('home');}
     }
 
     public function getbill()
@@ -23,16 +27,22 @@ class FinanceController extends Controller
      {
        $this->validate($request, ['name' => 'required',
                                'price' => 'required']);
-      $createWaste = Finance::create($request->all());
+      $id = Auth::user()->id;
+      $createWaste = Finance::create([
+        'name' => request('name'),
+        'price' => request('price'),
+        'description' => request('description'),
+        'user_id' => $id]
+      );
 
-      Bill::create(['bill' => request('price')]);
+      Bill::create(['bill' => request('price'),'user_id' => $id]);
 
       return $createWaste;
      }
 
      public function show()
       {
-        $wastes = Finance::latest()->get();
+        $wastes = User::find(Auth::user()->id)->finances()->latest()->get();
         return $wastes;
       }
 
@@ -45,8 +55,9 @@ class FinanceController extends Controller
       public function addbill(Request $request)
        {
         $this->validate($request, ['bill' => 'required']);
-
-        $bill = Bill::create($request->only(['bill']));
+        $id = Auth::user()->id;
+        $bill = Bill::create(['bill' => request('bill'),
+                              'user_id' => $id]);
 
         return $bill;
        }

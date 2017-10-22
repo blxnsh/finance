@@ -71,16 +71,18 @@ export default {
     this.busy = true;
     let i = 0;
     setTimeout(() => {
-      do {if(this.dataArr[this.count].id == undefined){break}
+      do {
+        if(typeof this.dataArr[this.count] === "undefined"){break; this.showLoad = false;}
         this.wastes.push(this.dataArr[this.count]);
         this.count++;
         i++;
       } while( i < 10)
       this.busy = false;
-    }, 1000);
+    }, 2000);
     setTimeout(() =>{
-      this.showLoad = false;}, 1000);
+      this.showLoad = false;}, 1500);
     }
+
   },
 
   }

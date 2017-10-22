@@ -2,9 +2,9 @@
   <v-container grid-list-xs text-xs-center>
     <v-layout row wrap elevation-6>
   <v-flex xs4 class="pa-0">
-    <v-card dark tile flat color="red lighten-2 grey--text text--lighten-4">
+    <a href="/home"><v-card dark tile flat color="red lighten-2 grey--text text--lighten-4">
       <v-card-text>Баланс</v-card-text>
-    </v-card>
+    </v-card> </a>
   </v-flex>
   <v-flex xs8 class="pa-0">
     <v-card dark tile flat color="red lighten-1 grey--text text--lighten-3">
@@ -40,5 +40,8 @@
 }
 .btn__content{
   color:#e3e3e3;
+}
+a{
+  text-decoration:none;
 }
 </style>
