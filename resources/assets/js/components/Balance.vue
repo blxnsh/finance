@@ -14,13 +14,13 @@
   </v-layout>
   <v-layout row wrap style="height:6rem;">
   <v-flex xs4>
-      <v-btn   color="deep-orange accent-2"
+      <v-btn block color="deep-orange accent-2"
       @click="$emit('showAddBalance')" id="topButton">
        <v-icon dark>add</v-icon>
       </v-btn>
   </v-flex>
   <v-flex xs8>
-    <v-btn  color="deep-orange accent-2"
+    <v-btn block color="deep-orange accent-2"
     @click="$emit('showAddWaste')" id="topButton">
       <v-icon dark>remove</v-icon>
   </v-btn>
@@ -47,7 +47,6 @@ a{
 
 #topButton{
   height:5rem;
-  width:90%;
 }
 
 </style>
