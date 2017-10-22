@@ -67,7 +67,8 @@ export default {
       });
     },
     loadMore() {
-    this.showLoad = true;
+      if(this.dataArr.length > 10){
+    this.showLoad = true;}
     this.busy = true;
     let i = 0;
     setTimeout(() => {
