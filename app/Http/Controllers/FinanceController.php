@@ -48,7 +48,9 @@ class FinanceController extends Controller
 
       public function delete(Request $request) {
         Finance::find($request->id)->delete();
-        Bill::create(['bill' => $request->price]);
+        $id = Auth::user()->id;
+        Bill::create(['bill' => $request->price,
+                      'user_id' => $id]);
         return "true";
          }
 
