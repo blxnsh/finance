@@ -12,15 +12,15 @@
     </v-card>
   </v-flex>
   </v-layout>
-  <v-layout row wrap style="padding-bottom:0.5rem;padding-top:0.5rem">
+  <v-layout row wrap style="height:6rem;">
   <v-flex xs4>
-      <v-btn fab dark large color="deep-orange accent-2"
-      @click="$emit('showAddBalance')">
+      <v-btn   color="deep-orange accent-2"
+      @click="$emit('showAddBalance')" style="width:90%;height:85%">
        <v-icon dark>add</v-icon>
       </v-btn>
   </v-flex>
   <v-flex xs8>
-    <v-btn fab dark large color="deep-orange accent-2"
+    <v-btn style="height:85%;width:90%" color="deep-orange accent-2"
     @click="$emit('showAddWaste')">
       <v-icon dark>remove</v-icon>
   </v-btn>
