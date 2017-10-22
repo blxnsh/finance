@@ -46,7 +46,7 @@ a{
 }
 
 #topButton{
-  height:85%;
+  height:5rem;
   width:90%;
 }
 
