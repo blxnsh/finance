@@ -16,13 +16,17 @@
   <v-flex xs4>
       <v-btn block color="deep-orange accent-2"
       @click="$emit('showAddBalance')" id="topButton">
-       <v-icon dark>add</v-icon>
+       <v-icon>
+          account_balance_wallet
+      </v-icon>
       </v-btn>
   </v-flex>
   <v-flex xs8>
     <v-btn block color="deep-orange accent-2"
     @click="$emit('showAddWaste')" id="topButton">
-      <v-icon dark>remove</v-icon>
+      <v-icon dark>
+        attach_money
+      </v-icon>
   </v-btn>
 </v-flex>
 </v-layout>

@@ -15,7 +15,6 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/vuetify/0.16.9/vuetify.min.css" rel="stylesheet">
 
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>@yield('title')</title>
 </head>
 <body class="mainBody">

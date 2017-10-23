@@ -35,8 +35,6 @@ class FinanceController extends Controller
         'user_id' => $id]
       );
 
-      Bill::create(['bill' => request('price'),'user_id' => $id]);
-
       return $createWaste;
      }
 
@@ -61,7 +59,17 @@ class FinanceController extends Controller
         $bill = Bill::create(['bill' => request('bill'),
                               'user_id' => $id]);
 
-        return $bill;
+        return $request->bill;
+       }
+      public function removebill(Request $request)
+       {
+        $this->validate($request, ['bill' => 'required']);
+        $id = Auth::user()->id;
+
+        $bill = Bill::create(['bill' => request('bill'),
+                              'user_id' => $id]);
+
+        return $request->bill;
        }
 
 }

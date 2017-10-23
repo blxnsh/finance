@@ -4,7 +4,7 @@
   <v-flex xs12 class="red darken-1 elevation-8">
       <balance @showAddBalance="showAddBalance" @showAddWaste="showAddWaste"><template slot="balance">{{balance}}</template></balance>
   </v-flex>
-  <addbalance @completedBal="addBalance" v-show="showBalance" ref="balanceForm"></addbalance>
+  <addbalance @completedAdd="addBalance" @completedRemove="removeBalance" v-show="showBalance" ref="balanceForm"></addbalance>
   <addwaste @completedWaste="addWaste" v-show="showWaste" ref="wasteForm"></addwaste>
   <v-flex class="pt-3">
     <wastelist ref="wList" @updBalance="updBalance"></wastelist>
@@ -38,7 +38,13 @@ export default {
     },
     methods: {
       addBalance(data){
-        this.balance = parseInt(this.balance) + parseInt(data.bill);
+        this.balance = parseInt(this.balance) + parseInt(data);
+        this.showBalance = false;
+        this.showWaste = false;
+        this.$refs.balanceForm.crud.bill = '';
+    },
+      removeBalance(data){
+        this.balance = parseInt(this.balance) + parseInt(data);
         this.showBalance = false;
         this.showWaste = false;
         this.$refs.balanceForm.crud.bill = '';

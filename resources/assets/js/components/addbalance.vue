@@ -2,14 +2,17 @@
   <v-container grid-list-xs text-xs-center elevation-3 class="pb-2 pt-2">
     <v-layout row wrap>
       <v-flex xs10 offset-xs1>
-  <v-form v-model="valid" @submit.prevent="addBalance">
+  <v-form v-model="valid">
     <v-text-field
      label="Сумма"
      v-model="crud.bill"
       required></v-text-field>
 
-    <v-btn  type="submit" color="primary" dark>
+    <v-btn  @click="addBalance" color="primary" dark>
          Добавить
+       </v-btn>
+    <v-btn  @click="removeBalance" color="error" dark>
+         Удалить
        </v-btn>
 </v-form>
 </v-flex>
@@ -25,7 +28,13 @@ export default {
     methods: {
       addBalance() {
      this.crud.post('/api/addbill')
-          .then(bill => this.$emit('completedBal', bill))
+          .then(bill => this.$emit('completedAdd', bill))
+            .catch(error => console.log(error.message));
+  },
+      removeBalance() {
+     this.crud.bill = -Math.abs(this.crud.bill);
+     this.crud.post('/api/removebill')
+          .then(bill => this.$emit('completedRemove', bill))
             .catch(error => console.log(error.message));
   }
     }

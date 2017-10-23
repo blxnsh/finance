@@ -12,9 +12,13 @@ class Bill extends Model
 
     public static function getBill(){
       $bills = User::find(Auth::user()->id)->bills()->get();
+      $wastes = User::find(Auth::user()->id)->finances()->get();
       $bill = 0;
       foreach ($bills as $oneBill) {
         $bill = $bill + $oneBill->bill;
+      }
+      foreach ($wastes as $oneWaste) {
+        $bill = $bill + $oneWaste->price;
       }
       return $bill;
     }
