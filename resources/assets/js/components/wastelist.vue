@@ -6,19 +6,9 @@
       <v-layout row wrap>
       <v-flex xs10 class="headline ">{{waste.name}}</v-flex>
       <v-flex xs2>
-        <v-menu>
-          <v-btn dark fab small color="transparent" outline slot="activator">
+          <v-btn dark fab small color="transparent" outline slot="activator" @click="deleteWaste(waste)">
             <v-icon>border_color</v-icon>
           </v-btn>
-        <v-list>
-          <v-list-tile @click="changeWaste(waste)">
-            <v-list-tile-title>Изменить трату</v-list-tile-title>
-          </v-list-tile>
-          <v-list-tile @click="deleteWaste(waste)">
-            <v-list-tile-title>Удалить</v-list-tile-title>
-          </v-list-tile>
-        </v-list>
-        </v-menu>
       </v-flex>
       <v-flex xs11 class="body-1">{{waste.description}}</v-flex>
       <v-flex xs9 class="headline deep-purple--text text--accent-3">{{Math.abs(waste.price)}} грн.</v-flex>
