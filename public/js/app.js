@@ -49821,7 +49821,7 @@ var render = function() {
                             },
                             slot: "activator"
                           },
-                          [_c("v-icon", [_vm._v("border_color")])],
+                          [_c("v-icon", [_vm._v("delete_sweep")])],
                           1
                         )
                       ],

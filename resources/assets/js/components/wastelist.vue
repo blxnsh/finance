@@ -7,7 +7,7 @@
       <v-flex xs10 class="headline ">{{waste.name}}</v-flex>
       <v-flex xs2>
           <v-btn dark fab small color="transparent" outline slot="activator" @click="deleteWaste(waste)">
-            <v-icon>border_color</v-icon>
+            <v-icon>delete_sweep</v-icon>
           </v-btn>
       </v-flex>
       <v-flex xs11 class="body-1">{{waste.description}}</v-flex>
