@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://finance-organizer.herokuapp.com/'),
+    'url' => env('APP_URL'),
 
     /*
     |--------------------------------------------------------------------------

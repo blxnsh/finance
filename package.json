@@ -16,10 +16,14 @@
     "vue": "^2.4.4"
   },
   "dependencies": {
+    "lodash-aliases": "^1.2.1",
     "moment": "^2.19.1",
     "sweetalert": "^2.0.6",
     "vue-blu": "^0.1.9",
     "vue-infinite-loading": "^2.2.1",
-    "vue-infinite-scroll": "^2.0.2"
+    "vue-infinite-scroll": "^2.0.2",
+    "vue-moment": "^3.1.0",
+    "vue-router": "^3.0.1",
+    "vuetify": "^0.17.6"
   }
 }
